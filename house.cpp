@@ -2,5 +2,7 @@
 
 House::House()
 {
+    int to;
+
 
 }
