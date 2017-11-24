@@ -6,6 +6,10 @@
 #include "appliance.h"
 #include "cluster.h"
 
+class House;
+class Cluster;
+class Appliance;
+
 class House
 {
 public:
@@ -16,7 +20,7 @@ public:
     int getPower();
     int getForced();
 
-    void tick(Cluster c);
+    void tick(Cluster* c);
 };
 
 #endif // HOUSE_H

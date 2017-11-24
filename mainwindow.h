@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "cluster.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -17,6 +19,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    Cluster* cluster;
+
+protected:
+    void timerEvent(QTimerEvent *event);
 };
 
 #endif // MAINWINDOW_H

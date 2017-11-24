@@ -1,12 +1,23 @@
 #ifndef CLUSTER_H
 #define CLUSTER_H
 
-#include <appliance.h>
+#include <vector>
+
+#include "appliance.h"
+#include "house.h"
+
+class Appliance;
+class House;
+class Cluster;
 
 class Cluster
 {
+    std::vector<House*> houses;
+    std::vector<Appliance*> appliances;
+
 public:
-    Cluster();
+    Cluster(int size);
+    void tick();
 
     void toQueue(Appliance *a);
 };

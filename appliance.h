@@ -1,7 +1,10 @@
 #ifndef APPLIANCE_H
 #define APPLIANCE_H
 
-//#include "house.h"
+#include "house.h"
+
+class House;
+class Appliance;
 
 struct type
 {
