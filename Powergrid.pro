@@ -15,10 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     appliance.cpp \
-    house.cpp
+    house.cpp \
+    cluster.cpp
 
 HEADERS  += mainwindow.h \
     appliance.h \
-    house.h
+    house.h \
+    cluster.h
 
 FORMS    += mainwindow.ui

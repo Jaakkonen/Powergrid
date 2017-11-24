@@ -4,3 +4,8 @@ Cluster::Cluster()
 {
 
 }
+
+void Cluster::toQueue(Appliance* a)
+{
+
+}

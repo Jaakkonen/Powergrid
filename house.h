@@ -4,13 +4,19 @@
 #include <vector>
 
 #include "appliance.h"
+#include "cluster.h"
 
 class House
 {
 public:
     House();
 
-    std::vector<Appliance> appliances;
+    std::vector<Appliance*> appliances;
+
+    int getPower();
+    int getForced();
+
+    void tick(Cluster c);
 };
 
 #endif // HOUSE_H
