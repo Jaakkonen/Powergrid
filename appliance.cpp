@@ -28,7 +28,25 @@ POWERED Appliance::getPowerState()
 
 void Appliance::turnOn(bool forced)
 {
-    powerState = forced ? POWER_FORCED_ON : POWER_GRANTED_ON;
-    timer = 0;
-    queueAt = types[type].minUseTime + std::rand() % (types[type].maxUseTime - types[type].minUseTime);
+    if(powerState == POWER_FORCED_ON)
+    {
+        if(!forced)
+            powerState = POWER_GRANTED_ON;
+    }
+    else
+    {
+        powerState = forced ? POWER_FORCED_ON : POWER_GRANTED_ON;
+        timer = 0;
+        queueAt = types[type].minUseTime + std::rand() % (types[type].maxUseTime - types[type].minUseTime);
+    }
+}
+
+int Appliance::getPower()
+{
+    return W;
+}
+
+TYPE_ENUM Appliance::getType()
+{
+    return type;
 }

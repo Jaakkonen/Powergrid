@@ -16,11 +16,17 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     appliance.cpp \
     house.cpp \
-    cluster.cpp
+    cluster.cpp \
+    houserepresenter.cpp \
+    appliancewidget.cpp
 
 HEADERS  += mainwindow.h \
     appliance.h \
     house.h \
-    cluster.h
+    cluster.h \
+    houserepresenter.h \
+    appliancewidget.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    houserepresenter.ui \
+    appliancewidget.ui

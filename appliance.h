@@ -29,14 +29,17 @@ class Appliance
     int timer = 0;
     int queueAt = 0;
 
+    int W;
+    TYPE_ENUM type;
+
 public:
     Appliance(int t, int power);
 
     POWERED getPowerState();
     void turnOn(bool forced);
 
-    int W;
-    TYPE_ENUM type;
+    int getPower();
+    TYPE_ENUM getType();
 };
 
 #endif // APPLIANCE_H

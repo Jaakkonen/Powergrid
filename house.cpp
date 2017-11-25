@@ -59,6 +59,5 @@ void House::tick(Cluster* c)
             appliances[i]->queueAt = types[appliances[i]->type].minUseInterval + std::rand() % (types[appliances[i]->type].maxUseInterval - types[appliances[i]->type].minUseInterval);
             appliances[i]->timer = 0;
         }
-
     }
 }

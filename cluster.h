@@ -12,14 +12,21 @@ class Cluster;
 
 class Cluster
 {
-    std::vector<House*> houses;
-    std::vector<Appliance*> appliances;
+    int maxPower;
+    float optimal, suboptimal;
+
+    std::vector<Appliance*> queue;
 
 public:
-    Cluster(int size);
+    Cluster(int size, int max, float opt, float sub);
     void tick();
 
+    int getPower();
+    int getForced();
+
     void toQueue(Appliance *a);
+
+    std::vector<House*> houses;
 };
 
 #endif // CLUSTER_H
