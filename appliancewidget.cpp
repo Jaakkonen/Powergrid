@@ -2,6 +2,7 @@
 #include "ui_appliancewidget.h"
 
 #include <QLabel>
+#include <QPixmap>
 
 ApplianceWidget::ApplianceWidget(QWidget *parent, Appliance* a) :
     QWidget(parent),
@@ -12,41 +13,68 @@ ApplianceWidget::ApplianceWidget(QWidget *parent, Appliance* a) :
 
     switch (appliance->getType()) {
     case TYPE_FRIDGE:
+    {
         bg = "#0099ff";
-        ui->icon->setText("F");
+        QPixmap ico(":/icons/jaakaappi.png");
+        ui->icon->setPixmap(ico);
         break;
+    }
     case TYPE_BLENDER:
+    {
         bg = "#ff9900";
-        ui->icon->setText("B");
+        QPixmap ico(":/icons/tehosekotin.png");
+        ui->icon->setPixmap(ico);
         break;
+    }
     case TYPE_HEATING:
+    {
         bg = "#ff0000";
-        ui->icon->setText("H");
+        QPixmap ico(":/icons/sahkolammitys.png");
+        ui->icon->setPixmap(ico);
         break;
+    }
     case TYPE_SAUNA:
-        bg = "#000000";
-        ui->icon->setText("S");
+    {
+        bg = "#aaaaaa";
+        QPixmap ico(":/icons/kiuas.png");
+        ui->icon->setPixmap(ico);
         break;
+    }
     case TYPE_WASH:
+    {
         bg = "#0000aa";
-        ui->icon->setText("W");
+        QPixmap ico(":/icons/pesukone.png");
+        ui->icon->setPixmap(ico);
         break;
+    }
     case TYPE_DISH:
+    {
         bg = "#0000ff";
-        ui->icon->setText("D");
+        QPixmap ico(":/icons/jaakaappi.png");
+        ui->icon->setPixmap(ico);
         break;
+    }
     case TYPE_TV:
+    {
         bg = "#ff6666";
-        ui->icon->setText("TV");
+        QPixmap ico(":/icons/tv.png");
+        ui->icon->setPixmap(ico);
         break;
+    }
     case TYPE_PC:
-        bg = "#999999";
-        ui->icon->setText("PC");
+    {
+        bg = "#777777";
+        QPixmap ico(":/icons/tietokone.png");
+        ui->icon->setPixmap(ico);
         break;
+    }
     case TYPE_LIGHT:
+    {
         bg = "#ffff00";
-        ui->icon->setText("L");
+        QPixmap ico(":/icons/valo.png");
+        ui->icon->setPixmap(ico);
         break;
+    }
     default:
         break;
     }
@@ -68,5 +96,13 @@ void ApplianceWidget::tick(int t)
     {
         ui->power->setText(QString::number(0) + " W");
         this->setStyleSheet("* { background-color : transparent; }");
+    }
+
+    if(appliance->getPowerState() == POWER_QUEUED)
+    {
+        if(t % 20 < 10)
+            this->setStyleSheet("* { background-color : " + bg + "; }");
+        else
+             this->setStyleSheet("* { background-color : transparent; }");
     }
 }

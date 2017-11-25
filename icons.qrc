@@ -1,2 +1,13 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/">
+        <file>icons/jaakaappi.png</file>
+        <file>icons/kiuas.png</file>
+        <file>icons/pesukone.png</file>
+        <file>icons/sahkolammitys.png</file>
+        <file>icons/tehosekotin.png</file>
+        <file>icons/tietokone.png</file>
+        <file>icons/tiskikone.png</file>
+        <file>icons/tv.png</file>
+        <file>icons/valo.png</file>
+    </qresource>
+</RCC>

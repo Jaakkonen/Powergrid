@@ -43,6 +43,9 @@
      <property name="text">
       <string>Icon</string>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
     </widget>
    </item>
    <item>

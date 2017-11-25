@@ -4,6 +4,10 @@
 #include <vector>
 
 #include <QMainWindow>
+#include <QLineSeries>
+
+#include <QChart>
+#include <QChartView>
 
 #include "cluster.h"
 #include "houserepresenter.h"
@@ -24,6 +28,10 @@ private:
     Ui::MainWindow *ui;
     Cluster* cluster;
     std::vector<HouseRepresenter*> housereps;
+
+    QtCharts::QLineSeries* series;
+    QtCharts::QChart* chart;
+    QtCharts::QChartView* chartView;
 
     int t = 0;
 

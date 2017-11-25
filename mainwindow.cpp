@@ -5,13 +5,15 @@
 #include <iostream>
 
 #include <QGridLayout>
+#include <QLabel>
 
 #include "houserepresenter.h"
 
 #define HOUSES 50
-#define MAXP 30000
+#define MAXP 60000
 #define OPT 0.6
 #define SUB 0.8
+#define DISPCHART 1000
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,8 +21,24 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     cluster = new Cluster(HOUSES, MAXP, OPT, SUB);
 
+    series = new QtCharts::QLineSeries();
+
+    chart = new QtCharts::QChart();
+        chart->legend()->hide();
+        chart->addSeries(series);
+        chart->createDefaultAxes();
+        chart->axisX()->setRange(0, DISPCHART);
+        chart->axisY()->setRange(0, MAXP);
+        chart->setTitle("Energy usage");
+
+        //chart->update();
+
+    chartView = new QtCharts::QChartView(chart);
+        chartView->setRenderHint(QPainter::Antialiasing);
+
     ui->setupUi(this);
-    startTimer(1);
+    ui->horizontalLayout->addWidget(chartView);
+    startTimer(50);
 
     for(int i = 0; i < HOUSES; i++)
     {
@@ -41,4 +59,14 @@ void MainWindow::timerEvent(QTimerEvent *event)
     cluster->tick();
     for(int i = 0; i < HOUSES; i++)
         housereps[i]->tick(t);
+
+    ui->max->setText(QString::number(MAXP) + " W");
+    ui->power->setText(QString::number(cluster->getPower()) + " W");
+    ui->forced->setText(QString::number(cluster->getForced()) + " W");
+
+    if(t > DISPCHART)
+        chart->axisX()->setRange(t - DISPCHART, t);
+
+    series->append(t, cluster->getPower());
+    chartView->update();
 }
