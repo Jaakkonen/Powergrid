@@ -24,6 +24,17 @@ int House::getPower()
     return ret;
 }
 
+int House::getPower(TYPE_ENUM type)
+{
+    int ret = 0;
+    for(int i = 0; i < 9; i++)
+    {
+        if((appliances[i]->powerState == POWER_FORCED_ON || appliances[i]->powerState == POWER_GRANTED_ON) && appliances[i]->getType() == type)
+            ret += appliances[i]->W;
+    }
+    return ret;
+}
+
 int House::getForced()
 {
     int ret = 0;

@@ -25,7 +25,8 @@ HEADERS  += mainwindow.h \
     house.h \
     cluster.h \
     houserepresenter.h \
-    appliancewidget.h
+    appliancewidget.h \
+    enums.h
 
 FORMS    += mainwindow.ui \
     houserepresenter.ui \

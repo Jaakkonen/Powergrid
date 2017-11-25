@@ -5,6 +5,7 @@
 
 #include "appliance.h"
 #include "cluster.h"
+#include "enums.h"
 
 class House;
 class Cluster;
@@ -18,6 +19,7 @@ public:
     std::vector<Appliance*> appliances;
 
     int getPower();
+    int getPower(TYPE_ENUM type);
     int getForced();
 
     void tick(Cluster* c);

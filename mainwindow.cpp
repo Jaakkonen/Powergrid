@@ -63,6 +63,7 @@ void MainWindow::timerEvent(QTimerEvent *event)
     ui->max->setText(QString::number(MAXP) + " W");
     ui->power->setText(QString::number(cluster->getPower()) + " W");
     ui->forced->setText(QString::number(cluster->getForced()) + " W");
+    ui->heating->setText(QString::number(cluster->getPower(TYPE_HEATING)) + " W");
 
     if(t > DISPCHART)
         chart->axisX()->setRange(t - DISPCHART, t);

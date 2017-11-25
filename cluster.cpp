@@ -61,6 +61,16 @@ int Cluster::getPower()
     return ret;
 }
 
+int Cluster::getPower(TYPE_ENUM type)
+{
+    int ret = 0;
+    for(int i = 0; i < houses.size(); i++)
+    {
+        ret += houses[i]->getPower(type);
+    }
+    return ret;
+}
+
 int Cluster::getForced()
 {
     int ret = 0;

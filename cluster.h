@@ -5,6 +5,7 @@
 
 #include "appliance.h"
 #include "house.h"
+#include "enums.h"
 
 class Appliance;
 class House;
@@ -22,6 +23,7 @@ public:
     void tick();
 
     int getPower();
+    int getPower(TYPE_ENUM type);
     int getForced();
 
     void toQueue(Appliance *a);
