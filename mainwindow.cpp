@@ -21,11 +21,15 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     cluster = new Cluster(HOUSES, MAXP, OPT, SUB);
 
-    series = new QtCharts::QLineSeries();
+    series0 = new QtCharts::QLineSeries();
+    series1 = new QtCharts::QLineSeries();
+    series2 = new QtCharts::QLineSeries();
 
     chart = new QtCharts::QChart();
         chart->legend()->hide();
-        chart->addSeries(series);
+        chart->addSeries(series0);
+        chart->addSeries(series1);
+        chart->addSeries(series2);
         chart->createDefaultAxes();
         chart->axisX()->setRange(0, DISPCHART);
         chart->axisY()->setRange(0, MAXP);
@@ -63,11 +67,12 @@ void MainWindow::timerEvent(QTimerEvent *event)
     ui->max->setText(QString::number(MAXP) + " W");
     ui->power->setText(QString::number(cluster->getPower()) + " W");
     ui->forced->setText(QString::number(cluster->getForced()) + " W");
-    ui->heating->setText(QString::number(cluster->getPower(TYPE_HEATING)) + " W");
 
     if(t > DISPCHART)
         chart->axisX()->setRange(t - DISPCHART, t);
 
-    series->append(t, cluster->getPower());
+    series0->append(t, cluster->getPower());
+    series1->append(t, cluster->getPower(TYPE_HEATING));
+    series2->append(t, cluster->getForced());
     chartView->update();
 }

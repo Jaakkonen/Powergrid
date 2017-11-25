@@ -29,7 +29,11 @@ private:
     Cluster* cluster;
     std::vector<HouseRepresenter*> housereps;
 
-    QtCharts::QLineSeries* series;
+    QtCharts::QLineSeries* series0;
+    QtCharts::QLineSeries* series1;
+    QtCharts::QLineSeries* series2;
+
+
     QtCharts::QChart* chart;
     QtCharts::QChartView* chartView;
 
