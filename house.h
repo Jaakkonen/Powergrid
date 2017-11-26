@@ -18,10 +18,11 @@ public:
 
     std::vector<Appliance*> appliances;
 
+
     int getPower();
     int getPower(TYPE_ENUM type);
     int getForced();
-
+    std::vector<Appliance*> getAppliances();
     void tick(Cluster* c);
 };
 

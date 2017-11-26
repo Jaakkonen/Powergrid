@@ -72,3 +72,7 @@ void House::tick(Cluster* c)
         }
     }
 }
+
+std::vector<Appliance*> House::getAppliances(){
+    return appliances;
+}

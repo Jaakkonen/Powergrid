@@ -10,7 +10,7 @@
 #include "houserepresenter.h"
 
 #define HOUSES 50
-#define MAXP 60000
+#define MAXP 55000
 #define OPT 0.6
 #define SUB 0.8
 #define DISPCHART 1000
@@ -42,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->setupUi(this);
     ui->horizontalLayout->addWidget(chartView);
-    startTimer(50);
+    startTimer(0);
 
     for(int i = 0; i < HOUSES; i++)
     {
